@@ -6,15 +6,9 @@ var Float = function (value) {
     }
 
     this.compareTo = function (anotherFloat) {
-        if (value < anotherFloat) {
-            return -1;
-        }
-        if (value > anotherFloat) {
-            return 1;
-        }
-        else {
-            return 0;
-        }
+        if (value < anotherFloat) return -1;
+        if (value > anotherFloat) return 1;
+        else return 0;
     };
 
     this.floatValue = function () {
@@ -32,15 +26,9 @@ var Float = function (value) {
 
 //Metodos estaticos de la clase...
 Float.compare = function (f1, f2) {
-    if (f1 < f2) {
-        return -1;
-    }
-    else if (f1 > f2) {
-        return 1;
-    }
-    else {
-        return 0;
-    }
+    if (f1 < f2) return -1;
+    else if (f1 > f2) return 1;
+    else return 0;
 };
 
 Float.intBitsToFloat = function (bits) {
