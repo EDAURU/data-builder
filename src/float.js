@@ -27,7 +27,7 @@ var Float = function (value) {
 
     this.toString = function () {
         return  value.toString();
-    }
+    };
 };
 
 //Metodos estaticos de la clase...
