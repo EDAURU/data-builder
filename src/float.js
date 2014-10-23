@@ -20,7 +20,7 @@ var Float = function (value) {
     };
 
     this.toString = function () {
-        return  value.toString();
+        return value.toString();
     };
 };
 
