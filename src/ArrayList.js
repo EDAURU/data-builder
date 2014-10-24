@@ -6,7 +6,7 @@
 var ArrayList = function () {
     var type;
     var list = [];
-
+    
 
     /**
      *  boolean     add(E e) Appends the specified element to the end of this list.
