@@ -1,35 +1,41 @@
 function HashMap(keytype, valuetype) {
     this.keytype = typeProcess(keytype);
     this.valuetype = typeProcess(valuetype);
+
     // Value object, that will hold keys and values for each entry (in the entry array)
     var Value = {
         key: null,
         value: null
     };
-    var entrys = [];
+
+    var entries = [];
+
     this.put = function (k, v) {
         if (this.keytype === typeProcess(k) && this.valuetype === typeProcess(v) && !(this.containsKey(k))) {
             var newval = Object.create(Value);
             newval.key = k;
             newval.value = v;
-            entrys.push(newval);
+            entries.push(newval);
         }
         else {
-            console.log("method:put, failed to validate type values");
+            console.log("method: put, failed to validate type values");
         }
 
     };
+
     this.get = function (k) {
-        for (var i = 0; i < entrys.length; i++) {
-            if (entrys[i].key == k) {
-                return entrys[i].value;
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].key == k) {
+                return entries[i].value;
             }
         }
         return null;
     };
+
     this.clear = function () {
-        entrys = [];
+        entries = [];
     };
+
     this.containsKey = function (k) {
         if (this.get(k) !== null) {
             return true;
@@ -38,51 +44,59 @@ function HashMap(keytype, valuetype) {
             return false;
         }
     };
+
     this.containsValue = function (v) {
-        for (var i = 0; i < entrys.length; i++) {
-            if (entrys[i].value == v) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].value == v) {
                 return true;
             }
         }
         return false;
     };
+
     this.equals = function (map) {
-        for (var i = 0; i < entrys.length; i++) {
-            if (!((entrys.length == map.size()) && (map.containsKey(entrys[i].key)) && (map.containsValue(entrys[i].value)))) {
+        for (var i = 0; i < entries.length; i++) {
+            if (!((entries.length == map.size()) && (map.containsKey(entries[i].key)) && (map.containsValue(entries[i].value)))) {
                 return false;
             }
         }
         return true;
     };
+
     this.size = function () {
-        return entrys.length;
+        return entries.length;
     };
+
     this.putAll = function (map) {
         keytype = map.keytype;
         valuetype = map.valuetype;
-        entrys = map.getEntrys();
+        entries = map.getEntrys();
     };
+
     this.remove = function (k) {
-        for (var i = 0; i < entrys.length; i++) {
-            if (entrys[i].key == k) {
-                entrys.splice(i, 1);
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].key == k) {
+                entries.splice(i, 1);
             }
         }
     };
+
     this.isEmpty = function () {
-        if (entrys.length === 0)
+        if (entries.length === 0)
             return true;
         else
             return false;
     };
+
     this.toString = function () {
         var statement = "{";
-        for (var i = 0; i < entrys.length; i++) {
-            statement += '{' + entrys[i].key + ':' + entrys[i].value + '}';
+        for (var i = 0; i < entries.length; i++) {
+            statement += '{' + entries[i].key + ':' + entries[i].value + '}';
         }
         statement += '}';
         return statement;
     };
+
     //proccessing Map Types
     function typeProcess(t) {
         /*first Veryfing if user's input is a string with the type related to the type
@@ -129,8 +143,8 @@ function HashMap(keytype, valuetype) {
         }
     }
 
-    function getEntrys() {
-        return entrys;
+    function getEntries() {
+        return entries;
     }
 
 }
