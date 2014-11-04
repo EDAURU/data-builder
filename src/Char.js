@@ -2,8 +2,8 @@ var Char = function (c) {
 
     this.charCount = function (code) {
         var cCount = parseInt(code);
-        if (parseInt(cCount) >= 10000) return 2;
-        else return 1;
+        if (parseInt(cCount) < 10000)  return 1;
+        else return 2;
     };
 
     this.charValue = function () {
