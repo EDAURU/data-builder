@@ -1,4 +1,4 @@
-Char = function (c) {
+var Char = function (c) {
 
     this.charCount = function (code) {
         var cCount = parseInt(code);
@@ -28,97 +28,63 @@ Char = function (c) {
         var xChar = x.charValue().charCodeAt(0);
         var yChar = y.charValue().charCodeAt(0);
 
-        if (xChar == yChar)
-            return 0;
-        else if (xChar < yChar)
-            return -1;
-        else
-            return 1;
+        return (xChar === yChar) ? 0 : (xChar < yChar) ? -1 : 1;
     };
 
     this.compareTo = function (x) {
         var value = this.charValue().charCodeAt(0);
         var xChar = x.charValue().charCodeAt(0);
 
-        if (value == xChar)
-            return 0;
-        else if (value < xChar)
-            return -1;
-        else
-            return 1;
-
+        return (value === xChar) ? 0 : (value < xChar) ? -1 : 1;
     };
 
     this.equals = function (x) {
         var value = this.charValue().charCodeAt(0);
         var xChar = x.charValue().charCodeAt(0);
-        if (value == xChar)
-            return true;
-        else
-            return false;
+        return value === xChar;
     };
 
     this.getName = function (code) {
         return String.fromCharCode(code);
-    }
+    };
 
     this.hashCode = function () {
-        var value = this.charValue().charCodeAt(0);
-        return value;
-    }
+        return this.charValue().charCodeAt(0);
+    };
 
     this.isDefined = function (x) {
         var xChar = x.charCodeAt(0);
-        if (xChar >= 0 && xChar <= 127)
-            return true;
-        else
-            return false;
+        return (xChar >= 0 && xChar <= 127);
     };
 
     this.isLetter = function (x) {
         var xChar = x.charCodeAt(0);
-        if (xChar >= 65 && xChar <= 122)
-            return true;
-        else
-            return false;
+        return (xChar >= 65 && xChar <= 122);
     };
 
     this.isDigit = function (x) {
         var xChar = x.charCodeAt(0);
-        if (xChar >= 48 && xChar <= 57)
-            return true;
-        else
-            return false;
+        return xChar >= 48 && xChar <= 57;
     };
 
     this.isLetterOrDigit = function (x) {
         var xChar = x.charCodeAt(0);
-        if ((xChar >= 48 && xChar <= 57) || (xChar >= 65 && xChar <= 122))
-            return true;
-        else
-            return false;
+        return (xChar >= 48 && xChar <= 57) || (xChar >= 65 && xChar <= 122);
     };
 
     this.isLowerCase = function (x) {
         var xChar = x.charCodeAt(0);
-        if (xChar >= 97 && xChar <= 122)
-            return true;
-        else
-            return false;
+        return (xChar >= 97 && xChar <= 122);
     };
 
     this.isUpperCase = function (x) {
         var xChar = x.charCodeAt(0);
-        if (xChar >= 65 && xChar <= 90)
-            return true;
-        else
-            return false;
+        return (xChar >= 65 && xChar <= 90);
     };
 
     this.toLowerCase = function (x) {
         var xChar = x.charValue().charCodeAt(0);
-        if (xChar >= 65 && xChar <= 90)
-            return String.fromCharCode(xChar + 32);
+        if (xChar >= 65 && xChar <= 90) return String.fromCharCode(xChar + 32);
     };
 
     this.toString = function () {
@@ -127,8 +93,7 @@ Char = function (c) {
 
     this.toUpperCase = function (x) {
         var xChar = x.charValue().charCodeAt(0);
-        if (xChar >= 97 && xChar <= 122)
-            return String.fromCharCode(xChar - 32);
+        if (xChar >= 97 && xChar <= 122) return String.fromCharCode(xChar - 32);
     };
 
     this.valueOf = function () {
