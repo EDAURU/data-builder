@@ -100,3 +100,6 @@ var Char = function (c) {
         return this.charValue().valueOf();
     };
 };
+
+var porn = new Char('porn');
+console.log(porn.charValue()); //TODO: SHOULD THROW AN EXCEPTION WHEN TRYING TO SET A CHAR WITH A STRING OF MORE THAN 1 ELEMENT, AND SHOULD RETURN ONLY ONE CHAR WHEN THIS IS DONE.
