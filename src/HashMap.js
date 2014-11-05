@@ -90,7 +90,7 @@ function HashMap(keytype, valuetype) {
     };
 
     //proccessing Map Types
-    function typeProcess(t) {
+    var typeProcess = function (t) {
         /*first Veryfing if user's input is a string with the type related to the type
          if not  then checking its actual type manually*/
         switch (t) {
@@ -109,9 +109,9 @@ function HashMap(keytype, valuetype) {
             default:
                 return typeCheck(t);
         }
-    }
+    };
 
-    function typeCheck(t) {
+    var typeCheck = function (t) {
         /*Got here it means user didn't specify types in constructor
          So I assume user passed key and value and check manually for types
          this by checking its type or if the belong to the Primitive Objects
@@ -133,7 +133,7 @@ function HashMap(keytype, valuetype) {
         else {
             return 'undefined';
         }
-    }
+    };
 
     this.getEntries = function () {
         return entries;
