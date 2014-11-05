@@ -82,10 +82,7 @@ function HashMap(keytype, valuetype) {
     };
 
     this.isEmpty = function () {
-        if (entries.length === 0)
-            return true;
-        else
-            return false;
+        return (entries.length === 0);
     };
 
     this.toString = function () {
@@ -143,16 +140,15 @@ function HashMap(keytype, valuetype) {
         }
     }
 
-    this.getEntries=function() {
+    this.getEntries = function () {
         return entries;
     };
-    this.values = function(){
-        var arr= [];
-        for(var i = 0;i<entries.length;i++)
-        {
+    this.values = function () {
+        var arr = [];
+        for (var i = 0; i < entries.length; i++) {
             arr.push(entries[i].value);
         }
         return arr;
-        };
-        
+    };
+
 }
