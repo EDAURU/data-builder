@@ -70,7 +70,7 @@ function HashMap(keytype, valuetype) {
     this.putAll = function (map) {
         keytype = map.keytype;
         valuetype = map.valuetype;
-        entries = map.getEntrys();
+        entries = map.getEntries();
     };
 
     this.remove = function (k) {
@@ -143,8 +143,16 @@ function HashMap(keytype, valuetype) {
         }
     }
 
-    function getEntries() {
+    this.getEntries=function() {
         return entries;
-    }
-
+    };
+    this.values = function(){
+        var arr= [];
+        for(var i = 0;i<entries.length;i++)
+        {
+            arr.push(entries[i].value);
+        }
+        return arr;
+        };
+        
 }
