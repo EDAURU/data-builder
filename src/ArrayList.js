@@ -4,9 +4,8 @@
  */
 
 var ArrayList = function () {
-    var type;
-    var list = [];
-    
+    var type,list = [];
+
 
     /**
      *  boolean     add(E e) Appends the specified element to the end of this list.
@@ -153,7 +152,7 @@ var ArrayList = function () {
 //    };
 
     /**
-     *  E 	        remove(int index)
+     *  E            remove(int index)
      *              Removes the element at the specified position in this list.
      *
      *  boolean     remove(Object o)
@@ -310,19 +309,3 @@ var ArrayList = function () {
         list = a;
     };
 };
-
-var a = new ArrayList();
-var b = new ArrayList();
-
-for (var i = 0; i < 30; i++) a.add(i);
-
-for (var i = 10; i < 20; i++) b.add(i);
-
-console.log(a.toArray());
-console.log(b.toArray());
-console.log(a.toArray());
-//console.log(a.retainAll([1, 2, 3, 4]));
-console.log(a.retainAll(b));
-console.log(a.toArray());
-//a.removeRange(0, 1);
-//console.log(a.toArray());
