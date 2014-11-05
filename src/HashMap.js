@@ -3,7 +3,7 @@ function HashMap(keytype, valuetype) {
     this.valuetype = typeProcess(valuetype);
 
     // Value object, that will hold keys and values for each entry (in the entry array)
-    var Value = {
+    var value = {
         key: null,
         value: null
     };
@@ -12,10 +12,10 @@ function HashMap(keytype, valuetype) {
 
     this.put = function (k, v) {
         if (this.keytype === typeProcess(k) && this.valuetype === typeProcess(v) && !(this.containsKey(k))) {
-            var newval = Object.create(Value);
-            newval.key = k;
-            newval.value = v;
-            entries.push(newval);
+            var newVal = Object.create(value);
+            newVal.key = k;
+            newVal.value = v;
+            entries.push(newVal);
         }
         else {
             console.log("method: put, failed to validate type values");
@@ -37,12 +37,7 @@ function HashMap(keytype, valuetype) {
     };
 
     this.containsKey = function (k) {
-        if (this.get(k) !== null) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return (this.get(k) !== null);
     };
 
     this.containsValue = function (v) {
