@@ -1,7 +1,4 @@
 function HashMap(keytype, valuetype) {
-    this.keytype = typeProcess(keytype);
-    this.valuetype = typeProcess(valuetype);
-
     // Value object, that will hold keys and values for each entry (in the entry array)
     var value = {
         key: null,
@@ -63,9 +60,14 @@ function HashMap(keytype, valuetype) {
     };
 
     this.putAll = function (map) {
-        keytype = map.keytype;
-        valuetype = map.valuetype;
-        entries = map.getEntries();
+        if(this.keytype==map.keytype && this.valuetype == map.valuetype)
+        {
+            var auxentries= map.getEntries();
+            for(var i = 0; i<auxentries.length; i++)
+            {
+                this.put(auxentries[i].key, auxentries[i].value);
+            }
+        }
     };
 
     this.remove = function (k) {
@@ -145,5 +147,7 @@ function HashMap(keytype, valuetype) {
         }
         return arr;
     };
+    this.keytype = typeProcess(keytype);
+    this.valuetype = typeProcess(valuetype);
 
 }
