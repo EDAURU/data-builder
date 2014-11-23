@@ -15,7 +15,7 @@ function HashMap(keytype, valuetype) {
             entries.push(newVal);
         }
         else {
-            console.log("method: put, failed to validate type values");
+            console.log("method: put, failed to validate type values on value:"+ k+' '+v);
         }
 
     };
@@ -130,7 +130,7 @@ function HashMap(keytype, valuetype) {
         } else if (t.constructor == Char) {
             return 'Char';
         } else if (t.constructor == String) {
-            return 'String';
+            return 'string';
         }
         else {
             return 'undefined';
